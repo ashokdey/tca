@@ -1,7 +1,8 @@
 import React from 'react';
-import { Card, Button } from 'antd';
+import { Card } from 'antd';
+import { Link } from 'react-router-dom';
 
-export default function HotleCard({ hotelName, location, city, price }) {
+export default function HotleCard({ hotelId, hotelName, location, city, price }) {
   return (
     <div className="site-card-border-less-wrapper">
       <Card title={hotelName} bordered style={{ width: "100%", margin: 10 }}>
@@ -12,7 +13,7 @@ export default function HotleCard({ hotelName, location, city, price }) {
             <h5>Price: Rs. {price}</h5>
             : <h5>Sold Out</h5>
         }
-        <Button type="primary">View Details</Button>
+        <Link to={`/hotels/${hotelId}`}>View Details</Link>
       </Card>
     </div>
   )

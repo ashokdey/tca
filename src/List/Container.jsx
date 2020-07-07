@@ -85,6 +85,7 @@ export default function List() {
             : hotels.map(hotel => (
               <HotelCard
                 key={hotel.id}
+                hotelId={hotel.id}
                 hotelName={hotel.name}
                 location={hotel.locality}
                 city={hotel.city}
