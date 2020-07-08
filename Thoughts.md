@@ -66,3 +66,4 @@ I avoid doing few of the above things because I am still learning them. But I kn
 ### Others
 
 - I only added ```moment``` just for the dummy comments and make the UI similar to a hotel detail page.
+- Please ignore the redundant use of ```<br />``` tags, I am re-visiting the css world and I hope to get up and running soon.
