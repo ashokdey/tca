@@ -6,11 +6,6 @@ export default function HotelSideCard({ hotel, essentials, policies, detailsLoad
   const hotelName = hotel && hotel.name;
   const price = hotel && hotel.price && findMinPrice(hotel.price);
 
-  console.log("-----------------hotel -------------", hotel);
-
-  if (hotel && hotel.price)
-    console.log('-------------------> price obj', findMinPrice(hotel.price))
-
   return (
     <React.Fragment>
       <HotelCard hotelName={hotelName} price={price} booking noViewMore policies={policies} essentials={essentials} detailsLoading={detailsLoading} />

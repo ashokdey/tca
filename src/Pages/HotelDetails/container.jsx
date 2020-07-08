@@ -63,9 +63,11 @@ export default function HotelDetails({ match }) {
     }
   }
 
+  console.log("hotels in details container ==========>", hotel);
+
   return (
     <Component
-      hotel={hotel}
+      hotel={hotel && hotel.length && hotel[0]}
       rooms={rooms}
       policies={policies}
       essentials={essentials}

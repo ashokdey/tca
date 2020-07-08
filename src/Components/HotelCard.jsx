@@ -16,6 +16,10 @@ export default function HotelCard({ hotelId, hotelName, location, city, viewMore
             : <h5>Sold Out</h5>
         }
         {
+          booking && price ? <Button type="primary">Book Now</Button> : null
+        }
+        <br />
+        {
           essentials && essentials.length ?
             <React.Fragment>
               <h3>Essentials</h3>
@@ -36,9 +40,6 @@ export default function HotelCard({ hotelId, hotelName, location, city, viewMore
                 }
               </ul>
             </React.Fragment> : null
-        }
-        {
-          booking && price ? <Button type="primary">Book Now</Button> : null
         }
         {
           viewMore ? <Link to={`/hotels/${hotelId}`}>View Details</Link> : null

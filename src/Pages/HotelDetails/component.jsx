@@ -49,7 +49,7 @@ export default function HotelDetailsPage({ hotel = {}, rooms = [], loading, esse
               </Col>
               <Col span={4}>
                 <br />
-                <HotelSideCard essentials={essentials} policies={policies} detailsLoading={detailsLoading} />
+                <HotelSideCard hotel={hotel} essentials={essentials} policies={policies} detailsLoading={detailsLoading} />
               </Col>
             </Row>
             <Row>
