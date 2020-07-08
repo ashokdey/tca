@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { Row, Col } from 'antd';
-import SearchBar from '../Components/Search';
-import HotelCard from '../Components/HotelCard';
-import Loading from '../Components/Loading';
-import { findMinPrice, resolveAPICalls } from '../utils';
-import { getHotelsAPI, getPriceAPI } from '../constants';
+import SearchBar from '../../Components/Search';
+import HotelCard from '../../Components/HotelCard';
+import Loading from '../../Components/Loading';
+import { findMinPrice, resolveAPICalls } from '../../utils';
+import { getHotelsAPI, getPriceAPI } from '../../constants';
 
 export default function List() {
 

@@ -2,8 +2,8 @@
 /* eslint-disable no-use-before-define */
 import React, { useState, useEffect } from 'react';
 import Component from './component';
-import { resolveAPICalls } from '../utils';
-import { getHotelsAPI, getPriceAPI, getExtraDetailsAPI } from '../constants';
+import { resolveAPICalls } from '../../utils';
+import { getHotelsAPI, getPriceAPI, getExtraDetailsAPI } from '../../constants';
 import axios from 'axios';
 
 export default function HotelDetails({ match }) {

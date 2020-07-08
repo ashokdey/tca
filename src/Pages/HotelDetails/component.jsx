@@ -3,12 +3,12 @@ import { Row, Col } from 'antd';
 import { Link } from 'react-router-dom';
 
 // custom
-import Carousal from '../Components/Carousel';
-import Search from '../Components/Search';
-import HotelCards from '../Components/HotelCard';
-import HotelSideCard from '../Components/HotelSideCard';
-import ReviewList from '../Components/Reviews';
-import Loading from '../Components/Loading';
+import Carousal from '../../Components/Carousel';
+import Search from '../../Components/Search';
+import HotelCards from '../../Components/HotelCard';
+import HotelSideCard from '../../Components/HotelSideCard';
+import ReviewList from '../../Components/Reviews';
+import Loading from '../../Components/Loading';
 
 // creating dummy images
 const images = [1, 2, 3, 4].map(num => "https://picsum.photos/900/300")
