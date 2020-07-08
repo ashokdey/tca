@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Component from './component';
 import { resolveAPICalls } from '../utils';
-import { getHotelsAPI, getPriceAPI } from '../constants';
+import { getHotelsAPI, getPriceAPI, getExtraDetailsAPI } from '../constants';
+import axios from 'axios';
 
 export default function HotelDetails({ match }) {
 
@@ -12,11 +13,28 @@ export default function HotelDetails({ match }) {
   const [loading, setLoading] = useState(true);
   const [rooms, setRooms] = useState([]);
 
+  const [policies, setPolicies] = useState([]);
+  const [essentials, setEssentials] = useState([]);
+  const [detailsError, setDetailsError] = useState('');
+  const [detailsLoading, setDetailsLoading] = useState(true);
+
   useEffect(() => {
-    getHotels();
+    axios.get(getExtraDetailsAPI).then((data) => {
+      data = data.data;
+      setPolicies(data.data.policies);
+      setEssentials(data.data.essentials);
+      setDetailsLoading(false);
+    }).catch(err => {
+      setDetailsError(err.message);
+      setDetailsLoading(false);
+    })
   }, []);
 
-  const getHotels = async () => {
+  useEffect(() => {
+    getHotelDetails();
+  }, []);
+
+  const getHotelDetails = async () => {
     try {
       setLoading(true);
       const res = await resolveAPICalls([getHotelsAPI, getPriceAPI]);
@@ -45,15 +63,15 @@ export default function HotelDetails({ match }) {
     }
   }
 
-  console.log({
-    rooms, hotel, error, loading
-  })
-
   return (
     <Component
       hotel={hotel}
       rooms={rooms}
+      policies={policies}
+      essentials={essentials}
       loading={loading}
-      error={error} />
+      detailsLoading={detailsLoading}
+      error={error}
+      detailsError={detailsError} />
   );
 }

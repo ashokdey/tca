@@ -1,12 +1,19 @@
 import React from 'react';
 import HotelCard from './HotelCard';
+import { findMinPrice } from '../utils';
 
-const features = [1, 2, 3, 4, 5]
+export default function HotelSideCard({ hotel, essentials, policies, detailsLoading }) {
+  const hotelName = hotel && hotel.name;
+  const price = hotel && hotel.price && findMinPrice(hotel.price);
 
-export default function HotelSideCard({ showPrice }) {
+  console.log("-----------------hotel -------------", hotel);
+
+  if (hotel && hotel.price)
+    console.log('-------------------> price obj', findMinPrice(hotel.price))
+
   return (
     <React.Fragment>
-      <HotelCard noViewMore features={features} />
+      <HotelCard hotelName={hotelName} price={price} booking noViewMore policies={policies} essentials={essentials} detailsLoading={detailsLoading} />
     </React.Fragment>
   )
 }

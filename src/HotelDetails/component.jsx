@@ -10,14 +10,25 @@ import HotelSideCard from '../Components/HotelSideCard';
 import ReviewList from '../Components/Reviews';
 import Loading from '../Components/Loading';
 
+// creating dummy images
 const images = [1, 2, 3, 4].map(num => "https://picsum.photos/900/300")
 
-export default function HotelDetailsPage({ hotel = {}, rooms = [], loading, error }) {
+export default function HotelDetailsPage({ hotel = {}, rooms = [], loading, essentials, policies, detailsLoading, error }) {
   return (
     <React.Fragment>
       {
         loading ?
-          <Loading /> :
+          <React.Fragment>
+            <Row>
+              <Col span={12} offset={8}>
+                <br />
+                <br />
+                <br />
+                <br />
+                <Loading />
+              </Col>
+            </Row>
+          </React.Fragment> :
           <React.Fragment>
             <Row>
               <Col span={16} offset={4}>
@@ -38,7 +49,7 @@ export default function HotelDetailsPage({ hotel = {}, rooms = [], loading, erro
               </Col>
               <Col span={4}>
                 <br />
-                <HotelSideCard showFeatures showPrice />
+                <HotelSideCard essentials={essentials} policies={policies} detailsLoading={detailsLoading} />
               </Col>
             </Row>
             <Row>

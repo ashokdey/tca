@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Button } from 'antd';
 import { Link } from 'react-router-dom';
 
-export default function HotelCard({ hotelId, hotelName, location, city, viewMore, showPrice, price, features }) {
+export default function HotelCard({ hotelId, hotelName, location, city, viewMore, price, booking, essentials, policies, detailsLoading }) {
 
 
   return (
@@ -14,18 +14,31 @@ export default function HotelCard({ hotelId, hotelName, location, city, viewMore
           !!price ?
             <h5>Price: Rs. {price}</h5>
             : <h5>Sold Out</h5>
-
         }
         {
-          features && features.length ?
+          essentials && essentials.length ?
             <React.Fragment>
+              <h3>Essentials</h3>
               <ul>
                 {
-                  features.map(feature => <li>{feature}</li>)
+                  essentials.map((essential, i) => <li key={i}>{essential}</li>)
                 }
               </ul>
-              <Button type="primary">Book Now</Button>
             </React.Fragment> : null
+        }
+        {
+          policies && policies.length ?
+            <React.Fragment>
+              <h3>Policies</h3>
+              <ul>
+                {
+                  policies.map((feature, i) => <li key={i}>{feature}</li>)
+                }
+              </ul>
+            </React.Fragment> : null
+        }
+        {
+          booking && price ? <Button type="primary">Book Now</Button> : null
         }
         {
           viewMore ? <Link to={`/hotels/${hotelId}`}>View Details</Link> : null

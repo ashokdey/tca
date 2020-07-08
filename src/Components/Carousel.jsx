@@ -6,10 +6,10 @@ export default function HotelCarousel({ screens = [] }) {
     <React.Fragment>
       <Carousel autoplay>
         {
-          screens.map((img) => {
+          screens.map((img, i) => {
             return (
-              <div>
-                <img src={img} alt="thumb 1" />
+              <div key={i}>
+                <img key={i} src={img} alt="thumb 1" />
               </div>
             );
           })
