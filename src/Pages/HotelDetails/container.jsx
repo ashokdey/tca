@@ -2,7 +2,7 @@
 /* eslint-disable no-use-before-define */
 import React, { useState, useEffect } from 'react';
 import Component from './component';
-import { resolveAPICalls } from '../../utils';
+import { resolveAPICalls, createHotelObjectArrays } from '../../utils';
 import { getHotelsAPI, getPriceAPI, getExtraDetailsAPI } from '../../constants';
 import axios from 'axios';
 
@@ -38,8 +38,10 @@ export default function HotelDetails({ match }) {
     try {
       setLoading(true);
       const res = await resolveAPICalls([getHotelsAPI, getPriceAPI]);
+      const hotels = createHotelObjectArrays(res);
+
       // for safe checkconvert both side as string
-      const hotelById = res.filter(hotel => String(hotel.id) === String(match.params.hotelId));
+      const hotelById = hotels.filter(hotel => String(hotel.id) === String(match.params.hotelId));
 
       const priceObject = hotelById[0].price;
       const keys = Object.keys(priceObject);
@@ -55,7 +57,7 @@ export default function HotelDetails({ match }) {
       }
 
       setRooms(getRooms);
-      setHotel(hotelById);
+      setHotel(hotelById[0]);
       setLoading(false);
     } catch (err) {
       setError(err.message);
@@ -63,11 +65,9 @@ export default function HotelDetails({ match }) {
     }
   }
 
-  console.log("hotels in details container ==========>", hotel);
-
   return (
     <Component
-      hotel={hotel && hotel.length && hotel[0]}
+      hotel={hotel}
       rooms={rooms}
       policies={policies}
       essentials={essentials}

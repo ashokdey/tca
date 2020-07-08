@@ -11,13 +11,11 @@ import PageNotFound from './Components/404';
 function App() {
   return (
     <BrowserRouter>
-      <React.Fragment>
-        <Switch>
-          <Route exact path="/" component={List} />
-          <Route exact path="/hotels/:hotelId" component={HotelDetails} />
-          <Route exact path="*" component={PageNotFound} />
-        </Switch>
-      </React.Fragment>
+      <Switch>
+        <Route exact path="/" component={List} />
+        <Route exact path="/hotels/:hotelId" component={HotelDetails} />
+        <Route exact path="*" component={PageNotFound} />
+      </Switch>
     </BrowserRouter>
   );
 }

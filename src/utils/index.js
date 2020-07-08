@@ -10,36 +10,37 @@ export const findMinPrice = (priceObject) => {
 
 export const resolveAPICalls = (urls = []) => new Promise((resolve, reject) => {
   if (!Array.isArray(urls)) throw new Error('Invalid arguments');
-
   // since we have get apis only
   const APICalls = urls.map(url => axios.get(url));
-
   // get the data of the APIs
-  Promise.all(APICalls).then(result => {
-    const [priceData, hotelData] = result;
-    const prices = priceData.data.data;
-    const hotels = hotelData.data.data;
+  Promise.all(APICalls).then(result => resolve(result));
+});
 
-    if (Array.isArray(prices) && Array.isArray(hotels)) {
-      // Let's use hash map and then create a single hotel object
-      // This has complexity of O(n) if data goes to N
-      const store = {};
+export const createHotelObjectArrays = (response) => {
+  const [priceData, hotelData] = response;
+  const prices = priceData.data.data;
+  const hotels = hotelData.data.data;
+  // this is hard coded, what 
+  if (!Array.isArray(prices) && !Array.isArray(hotels)) {
+    return [];
+  }
+  // Let's use hash map and then create a single hotel object
+  // This has complexity of O(n) if data goes to N
+  const store = {};
 
-      hotels.map(hotel => {
-        if (!store[hotel.id]) {
-          store[hotel.id] = hotel;
-        }
-      });
-
-      prices.map(price => {
-        if (store[price.id]) {
-          store[price.id].price = price.price;
-        }
-      });
-
-      // convert the store into array of hotels
-      const final = Object.keys(store).map((k) => store[k])
-      resolve(final);
+  hotels.map(hotel => {
+    if (!store[hotel.id]) {
+      store[hotel.id] = hotel;
     }
   });
-});
+
+  prices.map(price => {
+    if (store[price.id]) {
+      store[price.id].price = price.price;
+    }
+  });
+
+  // convert the store into array of hotels
+  const final = Object.keys(store).map((k) => store[k])
+  return final;
+}

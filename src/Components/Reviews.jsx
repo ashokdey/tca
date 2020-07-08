@@ -1,7 +1,8 @@
 import React from 'react';
 import { Comment, Tooltip, List } from 'antd';
 import moment from 'moment';
-// data for comment
+
+// copied as it is from Ant Design, I skipped this code because this is only for showcasing
 const data = [
   {
     actions: [<span key="comment-list-reply-to-0">Reply to</span>],
@@ -58,24 +59,22 @@ const data = [
 
 export default function ReviewList() {
   return (
-    <React.Fragment>
-      <List
-        className="comment-list"
-        header={`${data.length} reviews`}
-        itemLayout="horizontal"
-        dataSource={data}
-        renderItem={item => (
-          <li>
-            <Comment
-              actions={item.actions}
-              author={item.author}
-              avatar={item.avatar}
-              content={item.content}
-              datetime={item.datetime}
-            />
-          </li>
-        )}
-      />
-    </React.Fragment>
+    <List
+      className="comment-list"
+      header={`${data.length} reviews`}
+      itemLayout="horizontal"
+      dataSource={data}
+      renderItem={item => (
+        <li>
+          <Comment
+            actions={item.actions}
+            author={item.author}
+            avatar={item.avatar}
+            content={item.content}
+            datetime={item.datetime}
+          />
+        </li>
+      )}
+    />
   );
 }

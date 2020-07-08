@@ -49,7 +49,12 @@ export default function HotelDetailsPage({ hotel = {}, rooms = [], loading, esse
               </Col>
               <Col span={4}>
                 <br />
-                <HotelSideCard hotel={hotel} essentials={essentials} policies={policies} detailsLoading={detailsLoading} />
+                <HotelSideCard
+                  hotel={hotel}
+                  essentials={essentials}
+                  policies={policies}
+                  detailsLoading={detailsLoading}
+                />
               </Col>
             </Row>
             <Row>
@@ -61,7 +66,14 @@ export default function HotelDetailsPage({ hotel = {}, rooms = [], loading, esse
                 <h3>Room Types </h3>
                 {
                   rooms && rooms.length ?
-                    rooms.map(((room, i) => <HotelCards key={i} hotelName={room.name} price={room.price} />))
+                    rooms.map(((room, i) =>
+                      <HotelCards
+                        key={i}
+                        hotelName={room.name}
+                        price={room.price}
+                        city={hotel.city}
+                        location={hotel.locality}
+                      />))
                     : null
                 }
               </Col>

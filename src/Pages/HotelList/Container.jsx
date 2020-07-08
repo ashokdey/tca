@@ -4,7 +4,7 @@ import { Row, Col } from 'antd';
 import SearchBar from '../../Components/Search';
 import HotelCard from '../../Components/HotelCard';
 import Loading from '../../Components/Loading';
-import { findMinPrice, resolveAPICalls } from '../../utils';
+import { findMinPrice, resolveAPICalls, createHotelObjectArrays } from '../../utils';
 import { getHotelsAPI, getPriceAPI } from '../../constants';
 
 export default function List() {
@@ -21,7 +21,8 @@ export default function List() {
     try {
       setLoading(true);
       const res = await resolveAPICalls([getHotelsAPI, getPriceAPI]);
-      setHotels(res);
+      const hotels = createHotelObjectArrays(res);
+      setHotels(hotels);
       setLoading(false);
     } catch (err) {
       setError(err.message);

@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Button } from 'antd';
 import { Link } from 'react-router-dom';
 
-export default function HotelCard({ hotelId, hotelName, location, city, viewMore, price, booking, essentials, policies, detailsLoading }) {
+export default function HotelCard({ hotelId = 0, hotelName = 'N/A', location = 'N/A', city = 'N/A', viewMore = false, price, booking = false, essentials = [], policies = [], detailsLoading = true }) {
 
 
   return (
