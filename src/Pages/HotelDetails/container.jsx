@@ -1,12 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-use-before-define */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import axios from 'axios';
 import Component from './component';
 import { resolveAPICalls, createHotelObjectArrays } from '../../utils';
 import { getHotelsAPI, getPriceAPI, getExtraDetailsAPI } from '../../constants';
-import axios from 'axios';
+import { hotelsContext } from '../../contexts/hotels';
 
 export default function HotelDetails({ match }) {
+
+  let [hotels] = useContext(hotelsContext);
 
   const [hotel, setHotel] = useState([]);
   const [error, setError] = useState(false);
@@ -17,6 +20,7 @@ export default function HotelDetails({ match }) {
   const [essentials, setEssentials] = useState([]);
   const [detailsError, setDetailsError] = useState('');
   const [detailsLoading, setDetailsLoading] = useState(true);
+
 
   useEffect(() => {
     axios.get(getExtraDetailsAPI).then((data) => {
@@ -37,9 +41,10 @@ export default function HotelDetails({ match }) {
   const getHotelDetails = async () => {
     try {
       setLoading(true);
-      const res = await resolveAPICalls([getHotelsAPI, getPriceAPI]);
-      const hotels = createHotelObjectArrays(res);
-
+      if (!hotels.length) {
+        const res = await resolveAPICalls([getHotelsAPI, getPriceAPI]);
+        hotels = createHotelObjectArrays(res);
+      }
       // for safe checkconvert both side as string
       const hotelById = hotels.filter(hotel => String(hotel.id) === String(match.params.hotelId));
 
