@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useContext } from 'react';
 import { Row, Col } from 'antd';
-import SearchBar from '../../Components/Search';
-import HotelCard from '../../Components/HotelCard';
-import Loading from '../../Components/Loading';
-import { findMinPrice, resolveAPICalls, createHotelObjectArrays } from '../../utils';
-import { getHotelsAPI, getPriceAPI } from '../../constants';
-import { hotelsContext } from '../../contexts/hotels';
+import SearchBar from '../../../Components/Generic/Search';
+import HotelCard from '../../../Components/HotelCard';
+import Loading from '../../../Components/Generic/Loading';
+import { findMinPrice, resolveAPICalls, createHotelObjectArrays } from '../../../utils';
+import { getHotelsAPI, getPriceAPI } from '../../../constants';
+import { hotelsContext } from '../../../contexts/hotels';
 
 export default function List() {
 
@@ -56,7 +56,6 @@ export default function List() {
                       </div>
                     </Col>
                   </Row>
-
                   : hotels.map(hotel => (
                     <HotelCard
                       key={hotel.id}
