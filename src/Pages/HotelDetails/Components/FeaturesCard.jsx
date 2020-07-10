@@ -2,10 +2,10 @@ import React from 'react';
 import { Card } from 'antd';
 import { Link } from 'react-router-dom';
 
-export default function HotelCard({ featureHeading = 'N/A', showViewMore = false, viewMoreURL = '#', features = [], }) {
+export default function HotelFeaturesCard({ featureHeading = 'N/A', showViewMore = false, viewMoreURL = '#', features = [], }) {
   return (
     <div className="site-card-border-less-wrapper">
-      <Card title={featureHeading} bordered style={{ width: "100%", margin: 10 }}>
+      <Card title={featureHeading} bordered style={{ width: "50%", margin: 10 }}>
         {
           features && features.length ?
             <ul>

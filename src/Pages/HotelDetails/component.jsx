@@ -10,8 +10,10 @@ import HotelSideCard from '../../Components/HotelSideCard';
 import ReviewList from '../../Components/Reviews';
 import Loading from '../../Components/Loading';
 import { IMAGES } from '../../constants';
+import EssentialsCard from './Components/EssentialsCard';
+import PolicyCard from './Components/PolicyCard';
 
-export default function HotelDetailsPage({ hotel = {}, rooms = [], loading, essentials, policies, detailsLoading, error }) {
+export default function HotelDetailsPage({ hotel = {}, rooms = [], loading, essentials = [], policies = [], detailsLoading, error }) {
   return (
     <React.Fragment>
       {
@@ -44,10 +46,26 @@ export default function HotelDetailsPage({ hotel = {}, rooms = [], loading, esse
                 <br />
                 <HotelSideCard
                   hotel={hotel}
-                  essentials={essentials}
-                  policies={policies}
+
+
                   detailsLoading={detailsLoading}
                 />
+              </Col>
+            </Row>
+            <Row>
+              <Col span={8} offset={4}>
+                {
+                  essentials.length ?
+                    <EssentialsCard essentials={essentials} />
+                    : null
+                }
+              </Col>
+              <Col span={8}>
+                {
+                  policies.length ?
+                    <PolicyCard policies={policies} />
+                    : null
+                }
               </Col>
             </Row>
             <Row>
