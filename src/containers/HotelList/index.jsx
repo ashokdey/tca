@@ -24,9 +24,12 @@ export default function List() {
   const getHotels = async () => {
     try {
       setLoading(true);
-      const res = await resolveAPICalls([getHotelsAPI, getPriceAPI]);
-      const hotels = createHotelObjectArrays(res);
-      setHotels(hotels);
+      // check if already in the store, if not make an api call
+      if (!hotels.length) {
+        const res = await resolveAPICalls([getHotelsAPI, getPriceAPI]);
+        const hotels = createHotelObjectArrays(res);
+        setHotels(hotels);
+      }
       setLoading(false);
     } catch (err) {
       setError(err.message);
