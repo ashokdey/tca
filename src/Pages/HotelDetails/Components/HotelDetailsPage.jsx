@@ -3,30 +3,29 @@ import { Row, Col } from 'antd';
 import { Link } from 'react-router-dom';
 
 // custom
-import Carousal from '../../Components/Carousel';
-import Search from '../../Components/Search';
-import HotelRoomsList from './Components/HotelRoomsList';
-import HotelSideCard from '../../Components/HotelSideCard';
-import ReviewList from '../../Components/Reviews';
-import Loading from '../../Components/Loading';
-import { IMAGES } from '../../constants';
-import EssentialsCard from './Components/EssentialsCard';
-import PolicyCard from './Components/PolicyCard';
+import Carousal from '../../../Components/Carousel';
+import Search from '../../../Components/Search';
+import HotelRoomsList from './HotelRoomsList';
+import HotelSideCard from '../../../Components/HotelSideCard';
+import ReviewList from '../../../Components/Reviews';
+import Loading from '../../../Components/Loading';
+import { IMAGES } from '../../../constants';
+import EssentialsCard from './EssentialsCard';
+import PolicyCard from './PolicyCard';
 
 export default function HotelDetailsPage({ hotel = {}, rooms = [], loading, essentials = [], policies = [], detailsLoading, error }) {
   return (
     <React.Fragment>
       {
         loading ?
-          <React.Fragment>
-            <Row>
-              <Col span={12} offset={8}>
-                <div style={{ marginTop: '30em' }}>
-                  <Loading />
-                </div>
-              </Col>
-            </Row>
-          </React.Fragment> :
+          <Row>
+            <Col span={12} offset={8}>
+              <div style={{ marginTop: '30em' }}>
+                <Loading />
+              </div>
+            </Col>
+          </Row>
+          :
           <React.Fragment>
             <Row>
               <Col span={16} offset={4}>

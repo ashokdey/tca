@@ -49,7 +49,13 @@ export default function List() {
             <Row>
               <Col span={15} offset={4}>
                 {loading ?
-                  <Loading />
+                  <Row>
+                    <Col span={12} offset={8}>
+                      <div style={{ marginTop: '15em' }}>
+                        <Loading />
+                      </div>
+                    </Col>
+                  </Row>
 
                   : hotels.map(hotel => (
                     <HotelCard

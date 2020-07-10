@@ -8,7 +8,7 @@ import { hotelsContext } from './contexts/hotels';
 
 // custom components
 import List from './Pages/HotelList/Container';
-import HotelDetails from './Pages/HotelDetails/container';
+import HotelDetails from './Pages/HotelDetails/Containers/HotelDetailsPageContainer';
 import PageNotFound from './Components/404';
 
 function App() {

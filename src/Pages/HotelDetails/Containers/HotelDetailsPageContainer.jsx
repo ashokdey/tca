@@ -2,10 +2,10 @@
 /* eslint-disable no-use-before-define */
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import Component from './component';
-import { resolveAPICalls, createHotelObjectArrays } from '../../utils';
-import { getHotelsAPI, getPriceAPI, getExtraDetailsAPI } from '../../constants';
-import { hotelsContext } from '../../contexts/hotels';
+import HotelDetailsPage from '../Components/HotelDetailsPage';
+import { resolveAPICalls, createHotelObjectArrays } from '../../../utils';
+import { getHotelsAPI, getPriceAPI, getExtraDetailsAPI } from '../../../constants';
+import { hotelsContext } from '../../../contexts/hotels';
 
 export default function HotelDetails({ match }) {
 
@@ -71,7 +71,7 @@ export default function HotelDetails({ match }) {
   }
 
   return (
-    <Component
+    <HotelDetailsPage
       hotel={hotel}
       rooms={rooms}
       policies={policies}
