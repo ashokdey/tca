@@ -1,8 +1,9 @@
 import React from 'react';
 import { Card } from 'antd';
 import { Link } from 'react-router-dom';
+import { NA } from '../../constants';
 
-export default function HotelFeaturesCard({ featureHeading = 'N/A', showViewMore = false, viewMoreURL = '#', features = [], }) {
+export default function HotelFeaturesCard({ featureHeading = NA, showViewMore = false, viewMoreURL = '#', features = [], }) {
   return (
     <div className="site-card-border-less-wrapper">
       <Card title={featureHeading} bordered style={{ width: "50%", margin: 10 }}>
