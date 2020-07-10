@@ -1,11 +1,24 @@
 import axios from 'axios';
 
-// export const findMinPrice = (priceObject) => Math.min(...Object.keys(priceObject).map(el => (priceObject[el])).filter(el => el !== null));
-
-// let's make it readable
+// find the min from the price object which cal also have nulls
+/**
+ po = {
+    acacia: 2200
+    mahogany: 3312
+    maple: null
+    oak: 2435
+   } ;
+ */
 export const findMinPrice = (priceObject) => {
-  const nums = Object.keys(priceObject).map(el => (priceObject[el])).filter(el => el !== null)
-  return nums.length ? Math.min(...nums) : 0;
+  // const nums = Object.keys(priceObject).map(el => (priceObject[el])).filter(el => el !== null)
+  // return nums.length ? Math.min(...nums) : 0;
+  const priceList = [];
+
+  Object.keys(priceObject).forEach(el => {
+    const num = priceObject[el];
+    if (num) priceList.push(num);
+  });
+  return priceList.length ? Math.min(...priceList) : 0;
 }
 
 export const resolveAPICalls = (urls = []) => new Promise((resolve, reject) => {
@@ -16,6 +29,7 @@ export const resolveAPICalls = (urls = []) => new Promise((resolve, reject) => {
   Promise.all(APICalls).then(result => resolve(result));
 });
 
+// This will be used for combining the result from 2 APIs
 export const createHotelObjectArrays = (response) => {
   const [priceData, hotelData] = response;
   const prices = priceData.data.data;
