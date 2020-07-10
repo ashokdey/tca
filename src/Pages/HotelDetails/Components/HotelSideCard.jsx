@@ -1,6 +1,6 @@
 import React from 'react';
-import HotelCard from './HotelCard';
-import { findMinPrice } from '../utils';
+import HotelCard from '../../../Components/HotelCard';
+import { findMinPrice } from '../../../utils';
 
 export default function HotelSideCard({ hotel = {}, detailsLoading = false }) {
   const price = hotel && hotel.price && findMinPrice(hotel.price);

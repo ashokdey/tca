@@ -3,11 +3,11 @@ import { Row, Col } from 'antd';
 import { Link } from 'react-router-dom';
 
 // custom
-import Carousal from '../../../Components/Carousel';
+import Carousal from '../../../Components/Generic/Carousel';
 import Search from '../../../Components/Generic/Search';
 import HotelRoomsList from './HotelRoomsList';
-import HotelSideCard from '../../../Components/HotelSideCard';
-import ReviewList from '../../../Components/Reviews';
+import HotelSideCard from './HotelSideCard';
+import ReviewList from '../../../Components/Generic/Reviews';
 import Loading from '../../../Components/Generic/Loading';
 import { IMAGES } from '../../../constants';
 import EssentialsCard from './EssentialsCard';
