@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Row, Col } from 'antd';
 import SearchBar from '../../components/Generic/Search';
-import HotelCard from '../../components/HotelCard';
+import HotelCard from '../../components/HotelCard/HotelCard';
 import Loading from '../../components/Generic/Loading';
 import { findMinPrice, resolveAPICalls, createHotelObjectArrays } from '../../utils';
 import { getHotelsAPI, getPriceAPI } from '../../constants';

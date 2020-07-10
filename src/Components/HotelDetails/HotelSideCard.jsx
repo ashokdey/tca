@@ -1,5 +1,5 @@
 import React from 'react';
-import HotelCard from '../HotelCard';
+import HotelCard from '../HotelCard/HotelCard';
 import { findMinPrice } from '../../utils';
 
 export default function HotelSideCard({ hotel = {}, detailsLoading = false }) {
