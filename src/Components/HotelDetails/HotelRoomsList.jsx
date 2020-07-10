@@ -1,6 +1,6 @@
 import React from 'react';
-import HotelCard from '../../../Components/HotelCard';
-import { NA } from '../../../constants';
+import HotelCard from '../HotelCard';
+import { NA } from '../../constants';
 
 export default function HotelRoomsList({ heading = NA, rooms = [], city = NA, location = NA }) {
   return (

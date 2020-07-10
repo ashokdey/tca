@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useContext } from 'react';
 import { Row, Col } from 'antd';
-import SearchBar from '../../Components/Generic/Search';
-import HotelCard from '../../Components/HotelCard';
-import Loading from '../../Components/Generic/Loading';
+import SearchBar from '../../components/Generic/Search';
+import HotelCard from '../../components/HotelCard';
+import Loading from '../../components/Generic/Loading';
 import { findMinPrice, resolveAPICalls, createHotelObjectArrays } from '../../utils';
 import { getHotelsAPI, getPriceAPI } from '../../constants';
 import { hotelsContext } from '../../contexts/hotels';
@@ -41,9 +41,9 @@ export default function List() {
           <React.Fragment>
             <Row>
               <Col span={16} offset={4}>
-                <br />
-                <SearchBar />
-                <br />
+                <div style={{ marginTop: '3em', marginBottom: '2em' }}>
+                  <SearchBar />
+                </div>
               </Col>
             </Row>
             <Row>

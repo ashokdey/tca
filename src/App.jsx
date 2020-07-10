@@ -7,9 +7,9 @@ import 'antd/dist/antd.css';
 import { hotelsContext } from './contexts/hotels';
 
 // custom components
-import HotelList from './Pages/HotelList/Containers/HotelList';
-import HotelDetails from './Pages/HotelDetails/Containers/HotelDetailsPage';
-import PageNotFound from './Components/Generic/404';
+import HotelList from './containers/HotelList';
+import HotelDetails from './containers/HotelDetails';
+import PageNotFound from './components/Generic/404';
 
 function App() {
   // store the hotels after processing

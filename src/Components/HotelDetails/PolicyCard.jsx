@@ -1,5 +1,5 @@
 import React from 'react';
-import HotelFeatureCard from '../../../Components/Generic/FeaturesCard';
+import HotelFeatureCard from '../Generic/FeaturesCard';
 
 /** Using the feature card but view more is not meaningful here  */
 

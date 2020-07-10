@@ -2,7 +2,7 @@
 /* eslint-disable no-use-before-define */
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import HotelDetailsPage from '../Components/HotelDetailsPage';
+import HotelDetailsPage from '../../components/HotelDetails/HotelDetailsPage';
 import { resolveAPICalls, createHotelObjectArrays } from '../../utils';
 import { getHotelsAPI, getPriceAPI, getExtraDetailsAPI } from '../../constants';
 import { hotelsContext } from '../../contexts/hotels';
@@ -23,18 +23,19 @@ export default function HotelDetails({ match }) {
 
 
   useEffect(() => {
-    axios.get(getExtraDetailsAPI).then((data) => {
-      data = data.data;
-      setPolicies(data.data.policies);
-      setEssentials(data.data.essentials);
-      setDetailsLoading(false);
-    }).catch(err => {
-      setDetailsError(err.message);
-      setDetailsLoading(false);
-    })
-  }, []);
-
-  useEffect(() => {
+    async function getExtraDetails() {
+      try {
+        const res = await axios.get(getExtraDetailsAPI);
+        const data = res.data.data;
+        setPolicies(data.policies);
+        setEssentials(data.essentials);
+        setDetailsLoading(false);
+      } catch (err) {
+        setDetailsError(err.message);
+        setDetailsLoading(false);
+      }
+    }
+    getExtraDetails();
     getHotelDetails();
   }, []);
 
