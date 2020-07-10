@@ -2,6 +2,10 @@ import React from 'react';
 import { Comment, Tooltip, List } from 'antd';
 import moment from 'moment';
 
+/**
+ * Can be further broken down into reviews and review list 
+ */
+
 // copied as it is from Ant Design, I skipped this code because this is only for showcasing
 const data = [
   {

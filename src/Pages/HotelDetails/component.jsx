@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // custom
 import Carousal from '../../Components/Carousel';
 import Search from '../../Components/Search';
-import HotelCards from '../../Components/HotelCard';
+import HotelRoomsList from './Components/HotelRoomsList';
 import HotelSideCard from '../../Components/HotelSideCard';
 import ReviewList from '../../Components/Reviews';
 import Loading from '../../Components/Loading';
@@ -46,8 +46,6 @@ export default function HotelDetailsPage({ hotel = {}, rooms = [], loading, esse
                 <br />
                 <HotelSideCard
                   hotel={hotel}
-
-
                   detailsLoading={detailsLoading}
                 />
               </Col>
@@ -70,19 +68,12 @@ export default function HotelDetailsPage({ hotel = {}, rooms = [], loading, esse
             </Row>
             <Row>
               <Col span={16} offset={4}>
-                <h3 style={{ marginTop: '3em' }}>Room Types </h3>
-                {
-                  rooms && rooms.length ?
-                    rooms.map(((room, i) =>
-                      <HotelCards
-                        key={i}
-                        hotelName={room.name}
-                        price={room.price}
-                        city={hotel.city}
-                        location={hotel.locality}
-                      />))
-                    : null
-                }
+                <HotelRoomsList
+                  rooms={rooms}
+                  heading={"Available Rooms"}
+                  city={hotel.city}
+                  location={hotel.locality}
+                />
               </Col>
             </Row>
             <Row>

@@ -5,3 +5,4 @@ export const getExtraDetailsAPI = "http://www.mocky.io/v2/5a7f265b2e00005d00b568
 
 // creating dummy images
 export const IMAGES = [1, 2, 3, 4].map(num => "https://picsum.photos/900/300");
+export const NA = 'N/A';
