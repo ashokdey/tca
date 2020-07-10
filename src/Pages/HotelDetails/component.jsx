@@ -9,9 +9,7 @@ import HotelCards from '../../Components/HotelCard';
 import HotelSideCard from '../../Components/HotelSideCard';
 import ReviewList from '../../Components/Reviews';
 import Loading from '../../Components/Loading';
-
-// creating dummy images
-const images = [1, 2, 3, 4].map(num => "https://picsum.photos/900/300")
+import { IMAGES } from '../../constants';
 
 export default function HotelDetailsPage({ hotel = {}, rooms = [], loading, essentials, policies, detailsLoading, error }) {
   return (
@@ -21,30 +19,25 @@ export default function HotelDetailsPage({ hotel = {}, rooms = [], loading, esse
           <React.Fragment>
             <Row>
               <Col span={12} offset={8}>
-                <br />
-                <br />
-                <br />
-                <br />
-                <Loading />
+                <div style={{ marginTop: '30em' }}>
+                  <Loading />
+                </div>
               </Col>
             </Row>
           </React.Fragment> :
           <React.Fragment>
             <Row>
               <Col span={16} offset={4}>
-                <br />
-                <br />
-                <Link to={`/`}>Back to Home</Link>
-                <br />
-                <br />
+                <div style={{ marginTop: '3em', marginBottom: '2em' }}>
+                  <Link to={`/`}>Back to Home</Link>
+                </div>
                 <Search />
               </Col>
             </Row>
             <Row>
               <Col offset={4} span={12} >
-                <div style={{ height: '20em', width: '50em' }}>
-                  <br />
-                  <Carousal screens={images} />
+                <div style={{ height: '20em', width: '50em', marginTop: '1.5em' }}>
+                  <Carousal screens={IMAGES} />
                 </div>
               </Col>
               <Col span={4}>
@@ -59,11 +52,7 @@ export default function HotelDetailsPage({ hotel = {}, rooms = [], loading, esse
             </Row>
             <Row>
               <Col span={16} offset={4}>
-                <br />
-                <br />
-                <br />
-                <br />
-                <h3>Room Types </h3>
+                <h3 style={{ marginTop: '3em' }}>Room Types </h3>
                 {
                   rooms && rooms.length ?
                     rooms.map(((room, i) =>
