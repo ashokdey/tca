@@ -8,7 +8,7 @@ export default function HotelCard({ hotelId = 0, hotelName = NA, location = NA, 
 
   return (
     <div className="site-card-border-less-wrapper">
-      <Card title={hotelName} bordered style={{ width: "100%", margin: 10 }}>
+      <Card title={hotelName} bordered style={{ width: "100%", marginTop: '2em' }}>
         {!!city && <p>City: {city}</p>}
         {!!location && <p>Locality: {location}</p>}
         {

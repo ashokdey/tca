@@ -41,7 +41,6 @@ export default function HotelDetailsPage({ hotel = {}, rooms = [], loading, esse
                 </div>
               </Col>
               <Col span={4}>
-                <br />
                 <HotelSideCard
                   hotel={hotel}
                   detailsLoading={detailsLoading}
