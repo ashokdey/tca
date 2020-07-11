@@ -14,6 +14,7 @@ import PageNotFound from './components/Generic/404';
 function App() {
   // store the hotels after processing
   const [hotels, setHotels] = useState([]);
+
   return (
     <BrowserRouter>
       <hotelsContext.Provider value={[hotels, setHotels]}>

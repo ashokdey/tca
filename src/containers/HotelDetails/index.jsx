@@ -1,10 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-use-before-define */
 import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
 import HotelDetailsPage from '../../components/HotelDetails/HotelDetailsPage';
 import { resolveAPICalls, createHotelObjectArrays } from '../../utils';
-import { getHotelsAPI, getPriceAPI, getExtraDetailsAPI } from '../../constants';
+import { getHotelsAPI, getPriceAPI } from '../../constants';
 import { hotelsContext } from '../../contexts/hotels';
 
 export default function HotelDetails({ match }) {
@@ -16,26 +15,7 @@ export default function HotelDetails({ match }) {
   const [loading, setLoading] = useState(true);
   const [rooms, setRooms] = useState([]);
 
-  const [policies, setPolicies] = useState([]);
-  const [essentials, setEssentials] = useState([]);
-  const [detailsError, setDetailsError] = useState('');
-  const [detailsLoading, setDetailsLoading] = useState(true);
-
-
   useEffect(() => {
-    async function getExtraDetails() {
-      try {
-        const res = await axios.get(getExtraDetailsAPI);
-        const data = res.data.data;
-        setPolicies(data.policies);
-        setEssentials(data.essentials);
-        setDetailsLoading(false);
-      } catch (err) {
-        setDetailsError(err.message);
-        setDetailsLoading(false);
-      }
-    }
-    getExtraDetails();
     getHotelDetails();
   }, []);
 
@@ -75,11 +55,8 @@ export default function HotelDetails({ match }) {
     <HotelDetailsPage
       hotel={hotel}
       rooms={rooms}
-      policies={policies}
-      essentials={essentials}
       loading={loading}
-      detailsLoading={detailsLoading}
       error={error}
-      detailsError={detailsError} />
+    />
   );
 }

@@ -10,7 +10,7 @@ import HotelSideCard from './HotelSideCard';
 import ReviewList from '../Generic/Reviews';
 import Loading from '../Generic/Loading';
 import { IMAGES } from '../..//constants';
-import ExtraDetailsCard from './ExtraDetails';
+import ExtraDetailsCard from '../../containers/HotelDetails/ExtraDetails';
 
 export default function HotelDetailsPage({ hotel = {}, rooms = [], loading, essentials = [], policies = [], detailsLoading, error }) {
   return (
